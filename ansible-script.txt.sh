@@ -7,6 +7,7 @@ sudo yum install python python-devel python-pip openssl ansible -y
 sudo amazon-linux-extras install ansible2
 sudo hostnamectl set-hostname ansible 
 
+
 #install docker and docker-compose
 Sudo yum update -y
 sudo yum install git -y
