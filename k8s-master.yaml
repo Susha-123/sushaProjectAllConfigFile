@@ -59,7 +59,7 @@
       dest: $HOME/.kube/config
       remote_src: yes
   - name: cni install weave
-    shell: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+    shell: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/k8s-manifests/kube-flannel-rbac.yml
   - name: generate kube token
     shell: kubeadm token create --print-join-command 
     register: kubetoken
