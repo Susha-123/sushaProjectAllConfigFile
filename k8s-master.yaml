@@ -58,8 +58,12 @@
       src: /etc/kubernetes/admin.conf
       dest: $HOME/.kube/config
       remote_src: yes
-  - name: cni install weave
-    shell: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/k8s-manifests/kube-flannel-rbac.yml
+  - name: cni install flannel
+    become: yes
+    shell: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/a70459be0084506e4ec919aa1c114638878db11b/Documentation/kube-flannel.yml >> pod_network_setup.txt
+      args:
+        chdir: $HOME
+        creates: pod_network_setup.txt
   - name: generate kube token
     shell: kubeadm token create --print-join-command 
     register: kubetoken
