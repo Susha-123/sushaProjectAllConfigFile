@@ -1,7 +1,7 @@
 provider "aws" {
   region     = "us-east-2"
-  access_key = "AKIA44BZ7CDVPHVHMVNM"
-  secret_key = "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"
+  access_key = "AKIA44BZ7CDVPC5DNIPR"
+  secret_key = "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"
 }
 
 resource "aws_vpc" "prod-vpc" {
@@ -81,7 +81,7 @@ resource "aws_eip_association" "eip_assoc" {
 
 resource "aws_eip_association" "eip_assoc" {
   instance_id   = aws_instance.jenkins.id
-  allocation_id = "eipalloc-044011a5af959ac1d"
+  allocation_id = "eipalloc-0b9cc41f9830c468c"
 }
 /*
 resource "aws_eip_association" "eip_assoc" {
@@ -96,7 +96,7 @@ resource "aws_instance" "jenkins" {
   instance_type = "t2.medium"
   #availability_zone ="us-east-2b"
   associate_public_ip_address= true
-  key_name = "Aws" 
+  key_name = "susha" 
   subnet_id = aws_subnet.subnet-1.id 
   private_ip = "10.0.1.51"
   root_block_device   {
@@ -122,7 +122,7 @@ resource "aws_instance" "stagging" {
   instance_type = "t2.xlarge"
   associate_public_ip_address= true
   #availability_zone ="us-east-2b"
-  key_name = "Aws" 
+  key_name = "susha" 
   subnet_id = aws_subnet.subnet-1.id 
   private_ip = "10.0.1.55"
   root_block_device   {
@@ -145,7 +145,7 @@ resource "aws_instance" "ansible" {
   instance_type = "t2.large"
   associate_public_ip_address= true
   #availability_zone ="us-east-2b"
-  key_name = "Aws" 
+  key_name = "susha" 
   private_ip = "10.0.1.50"
   subnet_id = aws_subnet.subnet-1.id 
   root_block_device   {
@@ -168,7 +168,7 @@ resource "aws_instance" "k8s-master" {
   associate_public_ip_address= true
   private_ip = "10.0.1.52"
   #availability_zone ="us-east-2b"
-  key_name = "Aws" 
+  key_name = "susha" 
   subnet_id = aws_subnet.subnet-1.id 
   root_block_device   {
       volume_type = "gp2"
@@ -190,7 +190,7 @@ resource "aws_instance" "workernode1" {
   associate_public_ip_address= true
   #availability_zone ="us-east-2b"
   private_ip = "10.0.1.53"
-  key_name = "Aws" 
+  key_name = "susha" 
   subnet_id = aws_subnet.subnet-1.id 
   root_block_device   {
       volume_type = "gp2"
@@ -212,7 +212,7 @@ resource "aws_instance" "workernode2" {
   associate_public_ip_address= true
   #availability_zone ="us-east-2b"
   private_ip = "10.0.1.54"
-  key_name = "Aws" 
+  key_name = "susha" 
   subnet_id = aws_subnet.subnet-1.id 
   root_block_device   {
       volume_type = "gp2"
